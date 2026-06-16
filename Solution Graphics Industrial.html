@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Solution — Industrial & Manufacturing</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles-healthcare.css">
+<style>
+  html, body { background: #fff; }
+  .sg-section { padding: 96px 64px; }
+  .sg-grid {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 44px 32px;
+  }
+  .sg-cell { position: relative; }
+  .sg-glow {
+    position: absolute; z-index: 0; pointer-events: none;
+    width: 72%; height: 62%; border-radius: 50%;
+    filter: blur(52px); opacity: 0.72;
+  }
+  .sg-glow[data-i="0"] { right: -10%; top: -14%; background: radial-gradient(closest-side, rgba(32,188,237,0.62), transparent 70%); }
+  .sg-glow[data-i="1"] { left: -12%;  top: -14%; background: radial-gradient(closest-side, rgba(1,92,230,0.52),  transparent 70%); }
+  .sg-glow[data-i="2"] { right: -12%; bottom: -14%; background: radial-gradient(closest-side, rgba(32,188,237,0.56), transparent 70%); }
+  .sg-glow[data-i="3"] { left: -12%;  bottom: -14%; background: radial-gradient(closest-side, rgba(1,92,230,0.46),  transparent 70%); }
+  .sg-card {
+    position: relative; z-index: 1;
+    background: #fff;
+    border: 1px solid rgba(17,17,17,0.06);
+    border-radius: var(--radius-service, 24px);
+    overflow: hidden;
+    box-shadow: 0 30px 60px -22px rgba(16,40,90,0.22), 0 10px 24px -14px rgba(16,40,90,0.14);
+  }
+  .sg-viz {
+    position: relative;
+    height: 312px;
+    display: grid; place-items: center;
+    padding: 28px;
+    overflow: hidden;
+    isolation: isolate;
+    background: linear-gradient(168deg, #EEF5FF 0%, #F8FBFF 58%, #EAF2FE 100%);
+  }
+  .sg-viz::before {
+    content: ""; position: absolute; inset: 0; z-index: 0;
+    background:
+      radial-gradient(58% 55% at 82% 6%, rgba(32,188,237,0.22) 0%, rgba(32,188,237,0) 60%),
+      radial-gradient(55% 55% at 12% 100%, rgba(1,92,230,0.16) 0%, rgba(1,92,230,0) 64%);
+  }
+  .sg-viz > div { position: relative; z-index: 1; }
+  .sg-caption { padding: 22px 26px 26px; }
+  .sg-cap-label {
+    font-family: var(--font-editorial);
+    font-style: italic;
+    font-size: 14px;
+    color: #015CE6;
+    margin-bottom: 8px;
+  }
+  .sg-cap-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+    color: #101010;
+    margin: 0 0 8px;
+  }
+  .sg-cap-desc {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.55;
+    color: rgba(16,16,16,0.62);
+    margin: 0;
+    max-width: 46ch;
+    text-wrap: pretty;
+  }
+
+  @keyframes sgPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+  .sg-pulse { animation: sgPulse 1.8s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce) { .sg-pulse { animation: none; } }
+
+  @media (max-width: 900px) {
+    .sg-section { padding: 64px 24px; }
+    .sg-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="100" fill="#015CE6"/>
+    <path d="M30 72 L50 28 L70 72 Z" fill="none" stroke="#fff" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M42 60 L50 44 L58 60 L50 70 Z" fill="#EE7F00"/>
+  </svg>
+</template>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="components/BrandLogo.jsx"></script>
+<script type="text/babel" src="components/SolutionGraphicsIndustrial.jsx"></script>
+<script type="text/babel">
+  ReactDOM.createRoot(document.getElementById('root')).render(<SolutionGraphicsIndustrial/>);
+</script>
+</body>
+</html>
